@@ -73,21 +73,20 @@
     <button class="confirm-button" id="confirmButton">Подтвердить</button>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
         let tg = window.Telegram.WebApp;
         tg.expand(); // метод позволяет растянуть окно на всю высоту.
 
+
         // Получаем параметр из URL
         const urlParams = new URLSearchParams(window.location.search);
         const qrData = urlParams.get('qr_data');
+        console.log(qrData);
 
         // Генерация QR-кода
         if (qrData) {
-            QRCode.toCanvas(document.getElementById('qrCode'), qrData, function (error) {
-                if (error) console.error(error);
-            });
+            var qrcode = new QRCode("qrCode", qrData);
         } else {
             document.getElementById('qrCode').innerText = 'Нет данных для QR-кода';
         }
