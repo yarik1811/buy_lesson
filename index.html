@@ -76,15 +76,15 @@
 <body>
 
     <div class="content">
-        <div class="image-container">
-            <img src="https://example.com/your-image.jpg" alt="Your Image">
-        </div>
-
         <div class="qr-code-container">
             <div id="qrCode" class="qr-code"></div>
         </div>
-
+    </div>
+    <div class="content">
         <a id="confirmButton" class="confirm-button" href="#" target="_blank">Оплатить</a>
+    </div>
+    <div class="content">
+        <a id="selectSbp" class="confirm-button" href="" target="_blank">Выбрать банк</a>
     </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -121,12 +121,14 @@
 
             // Установка ссылки на кнопку "Оплатить"
             const confirmButton = document.getElementById('confirmButton');
+            const sbpButton = document.getElementById('selectSbp');
             confirmButton.href = qrData; // Ссылка на оплату устанавливается как QR-код
+            sbpButton.href = qrData; // Ссылка на оплату устанавливается как QR-код
         } else {
             document.getElementById('qrCode').innerText = 'Нет данных для QR-кода';
         }
 
-        
+
     </script>
 </body>
 </html>
