@@ -54,7 +54,9 @@
             text-decoration: none;
             font-size: 16px;
             margin-top: 10px;
-            display: inline-block;
+            display: inline-flex; /* Flex для размещения текста и изображения */
+            align-items: center;
+            justify-content: center;
             width: 200px;
         }
 
@@ -63,6 +65,11 @@
             opacity: 0.8;
         }
 
+        .confirm-button img {
+            margin-right: 8px; /* Отступ между иконкой и текстом */
+            width: 20px; /* Ширина изображения */
+            height: 20px; /* Высота изображения */
+        }
     </style>
 </head>
 <body>
@@ -72,7 +79,10 @@
             <div id="qrCode" class="qr-code"></div>
         </div>
         <a id="confirmButton" class="confirm-button" href="#" target="_blank">Оплатить</a>
-        <a id="selectSbp" class="confirm-button" href="#" target="_blank"><img src="https://gist.githubusercontent.com/PonomareVlad/e901e3e50e7b1c1b80c2f05f7b968758/raw/1abed6186b7c7a69ea5f4d284d2e767a9245650b/SBP.svg"> Выбрать банк</a>
+        <a id="selectSbp" class="confirm-button" href="#" target="_blank">
+            <img src="https://gist.githubusercontent.com/PonomareVlad/e901e3e50e7b1c1b80c2f05f7b968758/raw/1abed6186b7c7a69ea5f4d284d2e767a9245650b/SBP.svg" alt="bank logo">
+            Выбрать банк
+        </a>
     </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
