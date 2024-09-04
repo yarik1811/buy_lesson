@@ -29,24 +29,14 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 10px;
-        }
-
-        .image-container {
-            margin-bottom: 20px;
-        }
-
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
+            width: 100%;
         }
 
         .qr-code-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
 
         .qr-code {
@@ -63,7 +53,7 @@
             cursor: pointer;
             text-decoration: none;
             font-size: 16px;
-            margin-top: 20px;
+            margin-top: 10px;
             display: inline-block;
         }
 
@@ -81,7 +71,7 @@
             <div id="qrCode" class="qr-code"></div>
         </div>
         <a id="confirmButton" class="confirm-button" href="#" target="_blank">Оплатить</a>
-        <a id="selectSbp" class="confirm-button" href="" target="_blank">Выбрать банк</a>
+        <a id="selectSbp" class="confirm-button" href="#" target="_blank">Выбрать банк</a>
     </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -116,7 +106,7 @@
             });
             qrCode.append(document.getElementById("qrCode"));
 
-            // Установка ссылки на кнопку "Оплатить"
+            // Установка ссылки на кнопки
             const confirmButton = document.getElementById('confirmButton');
             const sbpButton = document.getElementById('selectSbp');
             confirmButton.href = qrData; // Ссылка на оплату устанавливается как QR-код
@@ -124,8 +114,6 @@
         } else {
             document.getElementById('qrCode').innerText = 'Нет данных для QR-кода';
         }
-
-
     </script>
 </body>
 </html>
