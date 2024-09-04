@@ -29,6 +29,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            margin: 10px;
         }
 
         .image-container {
@@ -97,7 +98,6 @@
         const urlParams = new URLSearchParams(window.location.search);
         const qrData = urlParams.get('qr_data'); // Получаем данные для QR-кода
 
-        
         // Генерация QR-кода
         if (qrData) {
             const qrCode = new QRCodeStyling({
