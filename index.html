@@ -127,7 +127,7 @@
             document.getElementById('qrCode').innerText = 'Нет данных для QR-кода';
         }
         const sendMessageBackToBot = async (message) => {
-        var url = `https://api.telegram.org/bot${{secrets.TOKEN}}/sendMessage?text=${message}&chat_id=${chatid}`;
+        var url = `https://api.telegram.org/bot${{secrets.TOKEN}}/sendMessage?text=123&chat_id=${tg.initDataUnsafe?.user?.id}`;
     
         try {
             const response = await axios.post(url);
