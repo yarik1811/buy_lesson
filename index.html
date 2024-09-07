@@ -126,6 +126,22 @@
         } else {
             document.getElementById('qrCode').innerText = 'Нет данных для QR-кода';
         }
+        const sendMessageBackToBot = async (message) => {
+        var url = `https://api.telegram.org/bot${{secrets.TOKEN}}/sendMessage?text=${message}&chat_id=${chatid}`;
+    
+        try {
+            const response = await axios.post(url);
+    
+            if (response.status === 200) {
+                await tele.close();
+            }
+        } catch (error) {
+            toast.error(t("error_sending_message_to_bot"), {
+                position: "top-center",
+            });
+        }
+    };
+
     </script>
 </body>
 </html>
