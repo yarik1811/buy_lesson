@@ -126,20 +126,39 @@
         } else {
             document.getElementById('qrCode').innerText = 'Нет данных для QR-кода';
         }
-        const sendMessageBackToBot = async (message) => {
-        var url = `https://api.telegram.org/bot${{secrets.TOKEN}}/sendMessage?text=123&chat_id=${tg.initDataUnsafe?.user?.id}`;
-    
+
+        
+        const sendMessageToTelegram = async (message) => {
+        const botToken = {{secrets.TOKEN}}; // Укажите ваш токен
+        const chatId =  tg.initDataUnsafe?.user?.id; // Укажите ваш chat_id
+
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+        // Параметры запроса
+        const data = {
+            chat_id: chatId,
+            text: message
+        };
+
         try {
-            const response = await axios.post(url);
-    
-            if (response.status === 200) {
-                await tele.close();
+            // Отправляем POST-запрос с помощью fetch
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                console.log('Сообщение успешно отправлено в Telegram');
+            } else {
+                console.error('Ошибка при отправке сообщения', response.statusText);
             }
         } catch (error) {
-            toast.error(t("error_sending_message_to_bot"), {
-                position: "top-center",
-            });
+            console.error('Ошибка при отправке запроса:', error);
         }
+    };
     };
 
     </script>
